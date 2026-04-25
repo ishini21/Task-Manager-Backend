@@ -8,11 +8,12 @@ import taskRoutes from "./routes/task.routes.js";
 
 const app = express();
 
-app.use(helmet());
+
 app.use(cors({
   origin: ['http://localhost:3000', 'https://your-frontend.vercel.app'],
   credentials: true
 }));
+app.use(helmet());
 app.use(express.json());
 
 app.use(rateLimit({
