@@ -11,8 +11,12 @@ const app = express();
 
 app.use(cors({
   origin: ['http://localhost:3000', 'https://your-frontend.vercel.app'],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+app.options('*', cors());
 app.use(helmet());
 app.use(express.json());
 
